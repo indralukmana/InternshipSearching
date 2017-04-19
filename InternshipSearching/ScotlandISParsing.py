@@ -19,11 +19,8 @@ for ul in unordered_lists:
 
         for li in list_items:
             if len(li.find_all('a')) == 0:
-                # print(li.text)
                 companies.add(li.text)
-            # print(li.find_all('a'))
 
-print(companies)
 
 with open('companies', 'w') as company_list_file:
     for company in companies:

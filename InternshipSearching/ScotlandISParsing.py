@@ -4,12 +4,14 @@ import requests
 URL = 'http://www.scotlandis.com/digitaltech2017/digitaltech2017-shortlist/'
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
+# make a request and read the html tags of the contents
 response = requests.get(URL, headers=HEADERS)
-
 soup = BeautifulSoup(response.content, 'lxml')
 
+# get all elements that contain unordered list of companies
 unordered_lists = soup.find_all('ul', class_=None)
 
+# Make company variable as set, because just need unique company name
 companies = set()
 
 for ul in unordered_lists:
